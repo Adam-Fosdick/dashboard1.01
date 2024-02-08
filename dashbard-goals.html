@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/79f831da6d.js" crossorigin="anonymous"></script>    
+<title>Dashboard - Goals</title>
+
+<style>
+    .btn{
+        transition: 0.2s all;
+    }
+
+    #btn:hover{
+        transform: scale(1.1);
+        color: black;
+        background-color: white;
+        box-shadow: 3px 3px 7px black;
+        font-weight: bold;
+        transform: translateY(-1px);
+    }
+
+</style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        
+        <div class="row">
+        <div class="col">
+            <div><h1 class="m-2 display-4" style="text-shadow: 2px 2px 4px gray;">Dashboard - Goals</h1></div>
+        </div>
+        <div class="col">
+            <div class="bg-primary text-white"></div>
+        </div>
+        <div class="col">
+            <img src="./pics/ASN_LOGO_4kpng.png" class="float-end" alt="x" width="180px" height="100px">
+        </div>
+        </div>
+    </div>
+   
+   <nav class="navbar navbar-expand-md py-0 shadow-lg">
+    <div class="container-fluid shadow bg-primary bg-gradient border-bottom border-3">
+        <div class="float-start">
+            <a href="index.html"><i class="fa-solid fa-chart-line fa-2xl" style="color: #ffffff;"></i></a>
+            <a href="#" id="btn" class="btn btn-primary fw-bolder m-2 rounded border"><i class="fa regular fa-users fa-lg m-2"></i>My Clients</a>
+            <a href="newClients.html" id="btn" class="btn btn-primary m-2 rounded border "><i class="class fa fa-user fa-lg m-2"></i>New Clients</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-car fa-lg m-2"></i>Inventory</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-comment-dollar fa-lg m-2"></i>Quotes</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-clipboard-list fa-lg m-2"></i>Recon</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-file-invoice-dollar fa-lg m-2"></i>RO</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-toolbox fa-lg m-2"></i>Tech Assign</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-regular fa-comments fa-lg m-2"></i>Employee Chat</a></div>
+            <a href="#" id="btn" class="btn btn-primary float-end m-2 rounded border"> <i class="fa-solid fa-gear fa-lg m-2"></i>Settings</a>
+        </div>
+   </nav>
+
+   
+   <nav class="navbar1 bg-primary bg-gradient shadow-lg border-end border-3 z-1">
+        <ul class="navbar1-nav justify-content-center d-flex align-items-start flex-column">
+            <li class="nav1-item">
+                
+                    <div class="d-grid gap-2">
+                    <a href="#" id="btn" class="btn btn-primary m-2 rounded border"><i class="fa-solid fa-list-ol fa-lg m-2"></i>Goals</a></span>
+                    </div>
+            </li>
+            <li class="nav1-item">
+                <div class="d-grid gap-2">
+                    <a href="#" id="btn" class="btn btn-primary m-2 rounded border"><i class="fa-solid fa-phone fa-lg m-2"></i>Calls</a>
+                </div>
+                
+            </li>
+        
+             
+            <li class="nav1-item" style="margin-bottom: auto;">
+                <div class="d-grid gap-2">    
+                <a href="#" id="btn" class="btn btn-primary m-2 rounded border"><i class="fa-solid fa-lg fa-circle-user m-2"></i>ID</a>
+                </div>
+                
+            </li>
+            
+        </ul>
+   </nav>
+  
+
+
+
+        <a href="" class="ps-5 ms-5 fw-bolder fs-2 text-decoration-none text-dark">Goals</a>
+      
+        <div class="d-flex justify-content-center">
+        <div class="card text-center d-flex w-50">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="true" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active">Disabled</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          </div>
+
+        <div class="input-group p-5 mb-3 w-50 p-5 m-5 d-flex justify-content-center">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Set Goals</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01 inputGroup-sizing-lg">
+              <option selected>Choose...</option>
+              <option value="1">Sales</option>
+              <option value="2">Appointments</option>
+              <option value="3">Phone Calls</option>
+            </select>
+            
+                <input type="number" class="form-control" placeholder="#" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    
+                  <button class="btn btn-outline-secondary" type="button">Submit</button>
+                </div>
+              
+          </div>
+
+<div class="class container-lg my-5">
+    <h2>justifying columns</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <div class="p-5 bg-info bg-opacity-10 border border-info border-2 rounded bg-gradient">Test</div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-5 bg-secondary text-light shadow-lg rounded border border-2 border-light bg-gradient">Test</div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-5 shadow-lg bg-light rounded border border-2 border-dark-subtle bg-gradient">Test</div>
+        </div>
+    </div>
+</div>
+
+
+ <h3 class="ps-5 ms-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt porro dolor, corrupti suscipit voluptates voluptatum consequuntur facere, sed perferendis quibusdam maiores. Quidem nulla sit enim labore quasi omnis blanditiis aspernatur pariatur debitis architecto sint, assumenda iusto similique molestias exercitationem facilis fugit aliquid quisquam ipsa veritatis! Exercitationem odit minima, quaerat vero quis, qui expedita adipisci accusamus autem cumque quia molestiae illo, incidunt dolores possimus! Vero sapiente illo ducimus cumque repudiandae, et quas a sunt facere debitis esse aut ea cum dicta aspernatur eos? Cupiditate suscipit officia id qui commodi. Corrupti delectus eveniet unde. Optio fuga corporis officia numquam officiis, quisquam ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, ut tenetur debitis eligendi facilis reiciendis fuga libero unde possimus, consequatur incidunt dolores consequuntur. Minus ex esse maxime eos, et accusamus quisquam autem amet molestias eum voluptatibus. Placeat obcaecati sint provident quidem? Molestias id voluptate, quo adipisci nulla odio architecto voluptatum culpa commodi eum excepturi provident iure dolores, quia consectetur, qui minus! Blanditiis deserunt mollitia, id, </h3>
+    
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

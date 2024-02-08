@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rusted Metal Ball Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let ball = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: 40,
+      speed: 5,
+      inertia: 0.98, // Inertia factor to gradually reduce speed
+      isMoving: false,
+      jumping: false,
+      jumpStrength: 8,
+      jumpDuration: 0.25,
+      jumpTimer: 0
+    };
+
+    let triangles = [];
+    let gravity = 8;
+
+    function drawBall() {
+      const rustGradient = ctx.createRadialGradient(
+        ball.x, ball.y, 0,
+        ball.x, ball.y, ball.radius
+      );
+      rustGradient.addColorStop(0, '#8B4513');  // Brown
+      rustGradient.addColorStop(0.2, '#CD853F');  // Peruvian Brown
+      rustGradient.addColorStop(1, '#A52A2A');  // Sienna
+
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = rustGradient;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function drawTriangles() {
+      ctx.fillStyle = 'green';
+      triangles.forEach(triangle => {
+        ctx.beginPath();
+        ctx.moveTo(triangle.x, triangle.y);
+        ctx.lineTo(triangle.x + triangle.size, triangle.y);
+        ctx.lineTo(triangle.x + triangle.size / 2, triangle.y - triangle.size);
+        ctx.closePath();
+        ctx.fill();
+      });
+    }
+
+    function update() {
+      if (ball.isMoving) {
+        ball.radius -= 0.1;
+
+        if (ball.radius < 1) {
+          // Game over condition
+          alert('Game Over!');
+          resetGame();
+        }
+      }
+
+      // Update triangles to follow the ball
+      triangles.forEach(triangle => {
+        const dx = ball.x - triangle.x;
+        const dy = ball.y - triangle.y;
+        const distance = Math.sqrt(dx ** 2 + dy ** 2);
+
+        const angle = Math.atan2(dy, dx);
+        const speed = triangle.speed / distance;
+
+        triangle.x += Math.cos(angle) * speed;
+        triangle.y += Math.sin(angle) * speed;
+      });
+
+      // Check for collision with triangles
+      triangles.forEach((triangle, index) => {
+        const dx = ball.x - triangle.x;
+        const dy = ball.y - triangle.y;
+        const distance = Math.sqrt(dx ** 2 + dy ** 2);
+
+        if (distance < ball.radius + triangle.size) {
+          // Triangle touched the ball, reduce the size of the ball
+          ball.radius -= 5;
+          // Remove the collided triangle
+          triangles.splice(index, 1);
+        }
+      });
+
+      // Apply gravity to the ball
+      if (ball.y < canvas.height - ball.radius && !ball.jumping) {
+        ball.y += gravity;
+      } else {
+        // If the ball is jumping, move it upward
+        if (ball.jumping && ball.jumpTimer > 0) {
+          ball.y -= ball.jumpStrength;
+          ball.jumpTimer -= 1 / 60; // decrease timer based on frame rate
+        } else {
+          ball.jumping = false;
+        }
+      }
+
+      // Apply inertia to gradually reduce the speed when not moving
+      if (!ball.isMoving) {
+        ball.speed *= ball.inertia;
+      }
+
+      // Move the ball with arrow keys
+      if (ball.isMoving) {
+        switch (ball.direction) {
+          case 'ArrowUp':
+            ball.y -= ball.speed;
+            break;
+          case 'ArrowDown':
+            ball.y += ball.speed;
+            break;
+          case 'ArrowLeft':
+            ball.x -= ball.speed;
+            break;
+          case 'ArrowRight':
+            ball.x += ball.speed;
+            break;
+        }
+      }
+
+      // Randomly generate new triangles
+      if (Math.random() < 0.01 && triangles.length < 5) {
+        triangles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 20 + 10,
+          speed: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      // Create a trail effect
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the ball, triangles, and items
+      drawBall();
+      drawTriangles();
+
+      // Call the update function again
+      requestAnimationFrame(update);
+    }
+
+    function resetGame() {
+      ball = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: 20,
+        speed: 5,
+        inertia: 0.98,
+        isMoving: false,
+        jumping: false,
+        jumpStrength: 8,
+        jumpDuration: 0.25,
+        jumpTimer: 0
+      };
+      triangles = [];
+    }
+
+    // Event listeners for arrow keys
+    window.addEventListener('keydown', (e) => {
+      if (e.key.startsWith('Arrow')) {
+        ball.isMoving = true;
+        ball.direction = e.key;
+      } else if (e.key === ' ' && !ball.jumping) {
+        // Space bar for jumping
+        ball.jumping = true;
+        ball.jumpTimer = ball.jumpDuration;
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (e.key.startsWith('Arrow')) {
+        ball.isMoving = false;
+      }
+    });
+
+    // Start the game loop
+    update();
+  </script>
+</body>
+</html>

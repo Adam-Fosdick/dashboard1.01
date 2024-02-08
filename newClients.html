@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/79f831da6d.js" crossorigin="anonymous"></script>    
+<title>Dashboard - Goals</title>
+
+<style>
+    .btn{
+        transition: 0.2s all;
+    }
+
+    #btn:hover{
+        transform: scale(1.1);
+        color: black;
+        background-color: white;
+        box-shadow: 3px 3px 7px black;
+        font-weight: bold;
+        transform: translateY(-1px);
+        text-shadow:  2px 2px 4px gray;
+    }
+
+   #active{
+    background-color: aqua;
+    max-width: 40px;
+    max-height: 20px;
+   }
+
+</style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        
+        <div class="row">
+        <div class="col">
+            <div><h1 class="m-2 display-4" style="text-shadow: 2px 2px 4px gray;">New Clients</h1></div>
+        </div>
+        <div class="col">
+            <div class="bg-primary text-white"></div>
+        </div>
+        <div class="col">
+            <img src="./pics/ASN_LOGO_4kpng.png" class="float-end" alt="x" width="180px" height="100px">
+        </div>
+        </div>
+    </div>
+   
+   <nav class="navbar navbar-expand-md py-0 shadow-lg">
+    <div class="container-fluid shadow bg-primary bg-gradient border-bottom border-3">
+        <div class="float-start">
+            <a href="index.html"><i class="fa-solid fa-chart-line fa-2xl" style="color: #ffffff;"></i></a>
+            <!--active page -->
+            <a href="#" id="btn" class="btn btn-primary fw-bolder m-2 rounded border"><i class="fa regular fa-users fa-lg m-2"></i>My Clients</a>
+            <a href="#" id="btn" class="btn btn-light bg-body-secondary bg-opacity-3 m-2 border-black border-top-0 border-start-0 border-3  opacity-50"><i class="class fa fa-user fa-lg m-2"></i>New Clients</a>
+            <!-- ------------->
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-car fa-lg m-2"></i>Inventory</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-comment-dollar fa-lg m-2"></i>Quotes</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-clipboard-list fa-lg m-2"></i>Recon</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-file-invoice-dollar fa-lg m-2"></i>RO</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-solid fa-toolbox fa-lg m-2"></i>Tech Assign</a>
+            <a href="#" id="btn" class="btn btn-primary m-2 rounded border "><i class="fa-regular fa-comments fa-lg m-2"></i>Employee Chat</a></div>
+            <a href="#" id="btn" class="btn btn-primary float-end m-2 rounded border"> <i class="fa-solid fa-gear fa-lg m-2"></i>Settings</a>
+        </div>
+   </nav>
+
+   
+   <nav class="navbar1 bg-primary bg-gradient shadow-lg border-end border-3">
+        <ul class="navbar1-nav justify-content-center d-flex align-items-start flex-column">
+            
+            <li class="nav1-item">
+                <div class="d-grid gap-2" id="icon">
+        
+                    <a href="#" id="btn" class="btn btn-primary m-2 rounded border"><i class="fa-solid fa-house-user fa-xl m-2"></i><div id="hide">Home</div></a>
+                </div>
+            </li>
+ 
+            <li class="nav1-item">
+                <div class="d-grid gap-2">
+                    <a href="#" id="btn" class="btn btn-primary m-2 rounded border"><i class="fa-solid fa-phone fa-xl m-2"></i>Work</a>
+                </div>
+            </li>
+             
+           
+            <li class="nav1-item">
+                
+                    <div class="d-grid gap-2" id="icon">
+                    <a href="#" id="btn" class="btn btn-primary m-2 rounded border"> <i class="fa-solid fa-user-plus fa-xl m-2"></i>CoBuyer</a></span>
+                    </div>
+            </li> 
+            <li class="nav1-item">
+                <div class="d-grid gap-2">    
+                <a href="#" id="btn" class="btn btn-primary m-2 rounded border float-start"><i class="fa-solid fa-lg fa-circle-user m-2"></i>ID</a>
+                </div>
+                
+            </li>
+        </ul>
+   </nav>
+<div class="d-flex justify-content-center flex-column align-content-center flex-wrap">
+   <form class="needs-validation w-50  p-5 m-5 d-flex flex-column" novalidate>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationCustom01">First name</label>
+        <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationCustom02">Last name</label>
+        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationCustomUsername">Username</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div>
+          <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom03">City</label>
+        <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationCustom04">State</label>
+        <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationCustom05">Zip</label>
+        <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+        <div class="invalid-feedback">
+          Please provide a valid zip.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
+        </label>
+        <div class="invalid-feedback">
+          You must agree before submitting.
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </form>
+</div>
+  <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+   </body>
+   </html>
